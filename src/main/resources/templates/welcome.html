@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome - LuxeStay</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-yellow-50 text-gray-800">
+<div class="flex flex-col min-h-screen">
+  <main class="flex-grow grid grid-cols-1 md:grid-cols-2">
+
+    <!-- Customer Section -->
+    <section class="relative p-10 bg-white flex flex-col justify-center items-center text-center shadow-inner">
+      <div class="max-w-md">
+        <h2 class="text-4xl font-semibold text-yellow-800 mb-6">Customer Portal</h2>
+        <p class="text-gray-600 mb-6 text-lg">Access premium services tailored for our distinguished guests.</p>
+        <div class="space-y-4">
+          <a href="/searchRoomPage"
+             class="block bg-yellow-700 text-white px-6 py-3 rounded-full font-medium hover:bg-yellow-800 transition shadow-md">
+            Search for a Room
+          </a>
+          <a href="/customers"
+             class="block bg-yellow-700 text-white px-6 py-3 rounded-full font-medium hover:bg-yellow-800 transition shadow-md">
+            Manage Customers
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Employee Section -->
+    <section class="relative p-10 flex flex-col justify-center items-center text-center shadow-inner"
+             style="background: linear-gradient(to right, #f6f0e7, #fffdf9);">
+
+    <div class="max-w-md">
+        <h2 class="text-4xl font-semibold text-yellow-800 mb-6">Employee Portal</h2>
+        <p class="text-gray-600 mb-6 text-lg">Manage luxury hotel operations with ease and clarity.</p>
+        <div class="space-y-4">
+          <a href="/hotel-chains"
+             class="block bg-yellow-700 text-white px-6 py-3 rounded-full font-medium hover:bg-yellow-800 transition shadow-md">
+            View Hotel Chains
+          </a>
+          <a href="/hotels"
+             class="block bg-yellow-700 text-white px-6 py-3 rounded-full font-medium hover:bg-yellow-800 transition shadow-md">
+            View Hotels
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-white text-center text-sm text-gray-500 py-6 border-t">
+    <a href="/" class="text-yellow-700 hover:underline">← Back to Home</a>
+  </footer>
+</div>
+</body>
+</html>

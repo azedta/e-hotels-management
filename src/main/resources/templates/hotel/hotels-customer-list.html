@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Explore Our Hotels</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/hotel/hotels-customer-list.css}">
+
+</head>
+<body>
+<h2>Explore Our Hotels</h2>
+
+<div th:each="hotel : ${hotels}" class="hotel">
+    <h3 th:text="${hotel.name}"></h3>
+    <p><strong>Address:</strong> <span th:text="${hotel.address} + ', ' + ${hotel.city}"></span></p>
+    <p><strong>Phone:</strong> <span th:text="${hotel.phoneNumber}"></span> &nbsp;&nbsp; <strong>Email:</strong> <span th:text="${hotel.emailAddress}"></span></p>
+    <p><strong>Rooms:</strong> <span th:text="${hotel.noOfRooms}"></span></p>
+    <p><strong>Rating:</strong>
+        <span class="rating" th:utext="${'&#9733;' * T(java.lang.Math).round(hotel.rating)} + '&#9734;' * (5 - T(java.lang.Math).round(hotel.rating))"></span>
+    </p>
+</div>
+
+<a href="/welcome" class="back-link">← Back to Welcome Page</a>
+</body>
+</html>

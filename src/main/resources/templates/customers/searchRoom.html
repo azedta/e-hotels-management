@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Portal - Room Search</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Playfair Display', serif;
+      background: linear-gradient(to right, #f6f0e7, #fffdf9);
+      color: #3b3a30;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 600;
+      color: #bfa046;
+      margin-bottom: 20px;
+    }
+
+    form {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+
+    form label,
+    form input {
+      display: block;
+      width: 100%;
+    }
+
+    form input[type="date"],
+    form input[type="number"],
+    form input[type="text"] {
+      margin-bottom: 20px;
+      padding: 12px 16px;
+      border: 1px solid #d6cbb5;
+      border-radius: 8px;
+      font-size: 16px;
+      background-color: #fdfbf7;
+    }
+
+    input[type="submit"] {
+      background-color: #bfa046;
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #a48935;
+    }
+
+    table {
+      width: 100%;
+      max-width: 1100px;
+      border-collapse: separate;
+      border-spacing: 0 12px;
+    }
+
+    th, td {
+      padding: 14px 18px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #efe7d8;
+      color: #7a6b44;
+      font-size: 18px;
+    }
+
+    tr {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+    }
+
+    tr:hover {
+      transform: scale(1.005);
+    }
+
+    td {
+      font-size: 16px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      font-size: 16px;
+      color: #7a6b44;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Customer Portal</h1>
+
+<h1>Search for Available Rooms</h1>
+
+<form action="/searchRooms" method="get">
+  <label for="startDate">Check-in Date:</label>
+  <input type="date" name="startDate" id="startDate" />
+
+  <label for="endDate">Check-out Date:</label>
+  <input type="date" name="endDate" id="endDate" />
+
+  <label for="capacity">Capacity:</label>
+  <input type="number" name="capacity" id="capacity" min="1" />
+
+  <label for="city">City:</label>
+  <input type="text" name="city" id="city" />
+
+  <label for="chainName">Hotel Chain:</label>
+  <input type="text" name="chainName" id="chainName" />
+
+  <label for="rating">Category (Rating):</label>
+  <input type="number" name="rating" id="rating" min="1" max="5" />
+
+  <label for="maxPrice">Max Price:</label>
+  <input type="number" name="maxPrice" id="maxPrice" step="0.01" />
+
+  <input type="submit" value="Search" />
+</form>
+
+<div th:if="${rooms != null}">
+  <table>
+    <thead>
+    <tr>
+      <th>Hotel Chain</th>
+      <th>Hotel ID</th>
+      <th>Location</th>
+      <th>Room Number</th>
+      <th>Price</th>
+      <th>Amenities</th>
+      <th>Capacity</th>
+      <th>Issues</th>
+    </tr>
+    </thead>
+    <tbody th:each="room : ${rooms}">
+    <tr>
+      <td th:text="${room.hotelChain}"></td>
+      <td th:text="${room.hotelId}"></td>
+      <td th:text="${room.city}"></td>
+      <td th:text="${room.roomNumber}"></td>
+      <td th:text="${room.price}"></td>
+      <td th:text="${room.amenities}"></td>
+      <td th:text="${room.capacity}"></td>
+      <td th:text="${room.problemsAndDamages}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <a href="/welcome" class="back-link">← Back to Welcome Page</a>
+</div>
+
+</body>
+</html>

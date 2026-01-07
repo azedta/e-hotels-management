@@ -1,0 +1,53 @@
+body {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 40px 20px;
+    background: linear-gradient(to right, #fdfbf7, #f9f5ec);
+    color: #3b3a30;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #bfa046;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.hotel {
+    border-bottom: 1px solid #e2dbc9;
+    padding: 30px 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hotel h3 {
+    margin: 0 0 10px;
+    font-size: 28px;
+    color: #7a6b44;
+}
+
+.hotel p {
+    margin: 6px 0;
+    font-size: 18px;
+}
+
+.rating {
+    color: #e0b046;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.back-link {
+    display: block;
+    margin-top: 50px;
+    text-align: center;
+    color: #bfa046;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: #a48935;
+}
